@@ -1,13 +1,13 @@
 package main
 
 import (
-	flag "github.com/spf13/pflag"
-	"fmt"
-	"io/ioutil"
+    flag "github.com/spf13/pflag"
+    "fmt"
+    "io/ioutil"
     "os"
-	"github.com/LukeEmmet/html2gemini"
-	"bufio"
-	"io"
+    "github.com/LukeEmmet/html2gemini"
+    "bufio"
+    "io"
     "errors"
 )
 
@@ -31,16 +31,16 @@ func saveFile(contents []byte, path string) {
 
 func readStdin () (string) {
     // based on https://flaviocopes.com/go-shell-pipes/
-	reader := bufio.NewReader(os.Stdin)     //default size is 4096 apparently
-	var output []rune
+    reader := bufio.NewReader(os.Stdin)     //default size is 4096 apparently
+    var output []rune
 
-	for {
-		input, _, err := reader.ReadRune()
-		if err != nil && err == io.EOF {
-			break
-		}
-		output = append(output, input)
-	}   
+    for {
+        input, _, err := reader.ReadRune()
+        if err != nil && err == io.EOF {
+            break
+        }
+        output = append(output, input)
+    }   
 
     return string(output)
 }
