@@ -1,4 +1,4 @@
-# html2gmi-cli
+# html2gmi
 A command line application to convert HTML to GMI (Gemini text/gemini), written in Go.
 
 A simple wrapper around the Go library https://github.com/LukeEmmet/html2gemini
@@ -6,7 +6,7 @@ A simple wrapper around the Go library https://github.com/LukeEmmet/html2gemini
 ## Usage
 
 ```
-html2gmi-cli -i <inputfile> -o <outputfile>
+html2gmi -i <inputfile> -o <outputfile>
 ```
 
 ## Flags
