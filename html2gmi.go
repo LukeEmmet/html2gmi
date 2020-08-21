@@ -14,8 +14,8 @@ import (
 var version = "0.2.1"
 
 var (
-	output            = flag.StringP("output", "o", "", "Output path. Otherwise uses stdout\n")
-	input             = flag.StringP("input", "i", "", "Input path. Otherwise uses stdin\n")
+	output            = flag.StringP("output", "o", "", "Output path. Otherwise uses stdout")
+	input             = flag.StringP("input", "i", "", "Input path. Otherwise uses stdin")
 	citationStart     = flag.IntP("citationStart", "c", 1, "Start citations from this index")
 	linkEmitFrequency = flag.IntP("linkEmitFrequency", "l", 2, "Emit gathered links through the document after this number of paragraphs")
 	verFlag           = flag.BoolP("version", "v", false, "Find out what version of html2gmi you're running")
