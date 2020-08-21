@@ -16,6 +16,7 @@ html2gmi <flags>
   
 ```
 
+
 ## Remarks
 
 linkEmitFrequency - this flag determines the frequency of the output of link lists. For example 1 means any links from the previous paragraph are emitted after each paragraph. 2, would mean they are emitted every two paragraphs and so on. Any gathered links are always emitted before a new heading.
@@ -25,3 +26,20 @@ citationStart - this flag determines the start index of the links. By default th
 You can pipe content in from other applications, for example utilities that download HTML from the web.
 
 To strip out cruft, you can use an HTML sanitiser before passing the content to this app.
+
+## Building
+
+Compile using Go.
+
+Retrieve the package using Go get
+
+```
+go get github.com/LukeEmmet/html2gmi
+
+```
+
+Build the binary using Go build
+
+```
+go build github.com/LukeEmmet/html2gmi
+```
