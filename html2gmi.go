@@ -11,12 +11,13 @@ import (
 	"os"
 )
 
-var version = "0.2.1"
+var version = "0.2.2"
 
 var (
 	output            = flag.StringP("output", "o", "", "Output path. Otherwise uses stdout")
 	input             = flag.StringP("input", "i", "", "Input path. Otherwise uses stdin")
 	citationStart     = flag.IntP("citationStart", "c", 1, "Start citations from this index")
+	citationMarkers = flag.BoolP("citationMarkers", "m", false, "Use footnote style citation markers")
 	linkEmitFrequency = flag.IntP("linkEmitFrequency", "l", 2, "Emit gathered links through the document after this number of paragraphs")
 	verFlag           = flag.BoolP("version", "v", false, "Find out what version of html2gmi you're running")
 )
@@ -92,13 +93,25 @@ func main() {
 	options.PrettyTables = true
 	options.CitationStart = *citationStart
 	options.LinkEmitFrequency = *linkEmitFrequency
-
+	options.CitationMarkers = *citationMarkers
+    
+    //use slightly nicer Unicode borders, otherwise can use +,|,-
+    options.PrettyTablesOptions.CenterSeparator = "┼"
+    options.PrettyTablesOptions.ColumnSeparator = "│"
+    options.PrettyTablesOptions.RowSeparator = "─"
+    
+    //dont use an extra line to separate header from body, but 
+    //do separate each row visually
+    options.PrettyTablesOptions.HeaderLine = false
+    options.PrettyTablesOptions.RowLine = true
+    
 	text, err := html2gemini.FromString(inputHtml, *options)
+
 	check(err)
 
 	//process the output
 	if *output == "" {
-		fmt.Print(text)
+		fmt.Print(text + "\n")      //terminate with a new line
 	} else {
 		//save to the specified output
 		gmiBytes := []byte(text)

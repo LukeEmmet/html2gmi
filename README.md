@@ -11,6 +11,7 @@ html2gmi <flags>
   -c, --citationStart int       Start citations from this index (default 1)
   -i, --input string            Input path. Otherwise uses stdin
   -l, --linkEmitFrequency int   Emit gathered links through the document after this number of paragraphs (default 2)
+  -m  --citationMarkers         Output citation style markers 
   -o, --output string           Output path. Otherwise uses stdout
   -v, --version                 Find out what version of html2gmi you're running
   
