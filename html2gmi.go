@@ -56,15 +56,14 @@ func getInput() (string, error) {
 	info, err := os.Stdin.Stat()
 	check(err)
 
-	if info.Mode()&os.ModeNamedPipe != 0 {
+	 if *input != "" {
+		 //get the input file from the command line
+		 dat, err := ioutil.ReadFile(*input)
+		 check(err)
+		 inputHtml = string(dat)
+	 } else if info.Mode()&os.ModeNamedPipe != 0 {
 		// we have a pipe input
 		inputHtml = readStdin()
-
-	} else if *input != "" {
-		//get the input file from the command line
-		dat, err := ioutil.ReadFile(*input)
-		check(err)
-		inputHtml = string(dat)
 
 	} else {
 		//we shouldn't get here
