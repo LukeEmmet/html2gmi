@@ -25,13 +25,14 @@ Usage of C:\Users\lukee\Desktop\programming\projects\go\src\github.com\LukeEmmet
 
 * linkEmitFrequency - this flag determines the frequency of the output of link lists. For example 1 means any links from the previous paragraph are emitted after each paragraph. 2, would mean they are emitted every two paragraphs and so on. Any gathered links are always emitted before a new heading.
 * citationStart - this flag determines the start index of the links. By default this is 1, so the first link is labelled "[1]", but you can set this as required.
-* citationMarkers - use a numbered marker in the text to indicate the location of the citation, [1], [2] etc
-* numberedLinks - number the links with a reference number [1], [2] etc
+* citationMarkers - use a numbered marker in the text to indicate the location of the citation, [1], [2] etc. 
+* numberedLinks - number the links with a reference number [1], [2] etc. Certain command line Gemini clients may automatically add these, in which case you can omit them.
 
+Simple tables will be displayed as preformatted content. Complex tables may not look perfect.
 
-You can pipe content in from other applications, for example utilities that download HTML from the web.
+You can pipe content in from other applications, for example utilities that download HTML from the web. 
 
-To strip out cruft, you can use an HTML sanitiser before passing the content to this app.
+To strip out cruft, use an HTML sanitiser before passing the content to this app.
 
 ## Building
 
