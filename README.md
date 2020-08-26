@@ -8,7 +8,8 @@ A simple wrapper around the Go library https://github.com/LukeEmmet/html2gemini
 ```
 html2gmi <flags>
 
-Usage of C:\Users\lukee\Desktop\programming\projects\go\src\github.com\LukeEmmet\html2gmi\html2gmi.exe:
+Usage of html2gmi.exe:
+
   -m, --citationMarkers         Use footnote style citation markers
   -c, --citationStart int       Start citations from this index (default 1)
   -i, --input string            Input path. Otherwise uses stdin
