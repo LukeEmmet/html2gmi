@@ -1,5 +1,6 @@
 # html2gmi
-A command line application to convert HTML to GMI (Gemini text/gemini), written in Go.
+
+A command line application to convert HTML to GMI (Gemini text/gemini), written in Go. Written in Go so it should compile on various common platforms (linux/mac/windows etc).
 
 A simple wrapper around the Go library https://github.com/LukeEmmet/html2gemini
 
@@ -7,8 +8,6 @@ A simple wrapper around the Go library https://github.com/LukeEmmet/html2gemini
 
 ```
 html2gmi <flags>
-
-Usage of html2gmi.exe:
 
   -m, --citationMarkers         Use footnote style citation markers
   -c, --citationStart int       Start citations from this index (default 1)
