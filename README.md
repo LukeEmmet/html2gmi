@@ -15,6 +15,7 @@ html2gmi <flags>
   -l, --linkEmitFrequency int   Emit gathered links through the document after this number of paragraphs (default 2)
   -n, --numberedLinks           Number the links
   -o, --output string           Output path. Otherwise uses stdout
+  -e, --emitImagesAsLinks       Emit links to included images
   -v, --version                 Find out what version of html2gmi you're running
 
   
@@ -27,6 +28,7 @@ html2gmi <flags>
 * citationStart - this flag determines the start index of the links. By default this is 1, so the first link is labelled "[1]", but you can set this as required.
 * citationMarkers - use a numbered marker in the text to indicate the location of the citation, [1], [2] etc. 
 * numberedLinks - number the links with a reference number [1], [2] etc. Certain command line Gemini clients may automatically add these, in which case you can omit them.
+* emitImagesAsLinks - add a link for every embedded image in addition to its placemarker
 
 Simple tables will be displayed as preformatted content. Complex tables may not look perfect.
 
@@ -50,3 +52,18 @@ Build the binary using Go build
 ```
 go build github.com/LukeEmmet/html2gmi
 ```
+
+# History
+
+## 0.2.3
+
+* option to toggle emitting links for embedded images
+
+## 0.2.2
+
+* option to toggle numbering on links
+* option to toggle citation markers
+
+## 0.2.1
+
+* public release
