@@ -115,7 +115,7 @@ func main() {
 		fmt.Print(text + "\n") //terminate with a new line
 	} else {
 		//save to the specified output
-		gmiBytes := []byte(text)
+		gmiBytes := []byte(text + "\n")
 		saveFile(gmiBytes, *output)
 	}
 }
