@@ -11,7 +11,7 @@ import (
 	"os"
 )
 
-var version = "0.2.3"
+var version = "0.2.5"
 
 var (
 	output            = flag.StringP("output", "o", "", "Output path. Otherwise uses stdout")
@@ -19,6 +19,8 @@ var (
 	citationStart     = flag.IntP("citationStart", "c", 1, "Start citations from this index")
 	citationMarkers   = flag.BoolP("citationMarkers", "m", false, "Use footnote style citation markers")
 	numberedLinks     = flag.BoolP("numberedLinks", "n", false, "Number the links")
+	prettyTables      = flag.BoolP("prettyTables", "t", false, "Pretty tables - works with most simple tables")
+	emitImagesAsLinks = flag.BoolP("emitImagesAsLinks", "e", false, "Emit links to included images")
 	linkEmitFrequency = flag.IntP("linkEmitFrequency", "l", 2, "Emit gathered links through the document after this number of paragraphs")
 	verFlag           = flag.BoolP("version", "v", false, "Find out what version of html2gmi you're running")
 )
@@ -90,21 +92,32 @@ func main() {
 
 	//convert html to gmi
 	options := html2gemini.NewOptions()
-	options.PrettyTables = true
+	options.PrettyTables = *prettyTables
 	options.CitationStart = *citationStart
 	options.LinkEmitFrequency = *linkEmitFrequency
 	options.CitationMarkers = *citationMarkers
 	options.NumberedLinks = *numberedLinks
+	options.EmitImagesAsLinks = *emitImagesAsLinks
 
-	//use slightly nicer Unicode borders, otherwise can use +,|,-
-	options.PrettyTablesOptions.CenterSeparator = "┼"
-	options.PrettyTablesOptions.ColumnSeparator = "│"
-	options.PrettyTablesOptions.RowSeparator = "─"
 
 	//dont use an extra line to separate header from body, but
 	//do separate each row visually
 	options.PrettyTablesOptions.HeaderLine = false
 	options.PrettyTablesOptions.RowLine = true
+
+	//use slightly nicer Unicode borders, otherwise can use +,|,-
+	//options.PrettyTablesOptions.CenterSeparator = "┼"
+	//options.PrettyTablesOptions.ColumnSeparator = "│"
+	//options.PrettyTablesOptions.RowSeparator = "─"
+
+    //pretty tables option is somewhat experimental
+    //and the column positions not always correct
+    //so use invisible borders of spaces for now
+    options.PrettyTablesOptions.CenterSeparator = " "
+	options.PrettyTablesOptions.ColumnSeparator = " "
+	options.PrettyTablesOptions.RowSeparator = " "
+    
+
 
 	text, err := html2gemini.FromString(inputHtml, *options)
 

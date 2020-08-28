@@ -16,6 +16,7 @@ html2gmi <flags>
   -n, --numberedLinks           Number the links
   -o, --output string           Output path. Otherwise uses stdout
   -e, --emitImagesAsLinks       Emit links to included images
+  -t, --prettyTables            Pretty tables - works with most simple tables
   -v, --version                 Find out what version of html2gmi you're running
 
   
@@ -29,8 +30,7 @@ html2gmi <flags>
 * citationMarkers - use a numbered marker in the text to indicate the location of the citation, [1], [2] etc. 
 * numberedLinks - number the links with a reference number [1], [2] etc. Certain command line Gemini clients may automatically add these, in which case you can omit them.
 * emitImagesAsLinks - add a link for every embedded image in addition to its placemarker
-
-Simple tables will be displayed as preformatted content. Complex tables may not look perfect.
+* prettyTables - tables will be displayed as preformatted content. Complex tables may not look perfect. Otherwise each table row is a new line.
 
 You can pipe content in from other applications, for example utilities that download HTML from the web. 
 
@@ -55,7 +55,13 @@ go build github.com/LukeEmmet/html2gmi
 
 # History
 
-## 0.2.3
+## 0.2.5
+
+* new -t flag to emit pretty tables (as preformatted content)
+* improve table rendering when prettyTables is off
+* don't use a border marker for preformatted tables
+
+## 0.2.4
 
 * option to toggle emitting links for embedded images
 
