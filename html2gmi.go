@@ -116,10 +116,10 @@ func main() {
     options.PrettyTablesOptions.CenterSeparator = " "
 	options.PrettyTablesOptions.ColumnSeparator = " "
 	options.PrettyTablesOptions.RowSeparator = " "
-    
 
+	ctx := html2gemini.NewTraverseContext(*options)
 
-	text, err := html2gemini.FromString(inputHtml, *options)
+	text, err := html2gemini.FromString(inputHtml, *ctx)
 
 	check(err)
 
