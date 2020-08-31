@@ -38,22 +38,21 @@ To strip out cruft, use an HTML sanitiser before passing the content to this app
 
 ## Building
 
-Compile using Go.
-
-Retrieve the package using Go get
+If you have Go installed, you can install the latest commit using
 
 ```
-go get github.com/LukeEmmet/html2gmi
+go env -w GO111MODULE=on
+go get github.com/LukeEmmet/html2gmi@master
 
 ```
 
-Build the binary using Go build
-
-```
-go build github.com/LukeEmmet/html2gmi
-```
 
 # History
+
+## 0.2.6
+
+* Use Go modules
+* use update html2gemini having fix for bug whereby preformatted regions sometimes missed closing newlines
 
 ## 0.2.5
 
