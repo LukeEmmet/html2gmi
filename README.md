@@ -49,6 +49,10 @@ go get github.com/LukeEmmet/html2gmi@master
 
 # History
 
+## 0.2.7
+
+* escape spaces in urls to allow url to be correctly distinguished from display text in gemini
+
 ## 0.2.6
 
 * Use Go modules
