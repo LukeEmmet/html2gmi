@@ -99,7 +99,6 @@ func main() {
 	options.NumberedLinks = *numberedLinks
 	options.EmitImagesAsLinks = *emitImagesAsLinks
 
-
 	//dont use an extra line to separate header from body, but
 	//do separate each row visually
 	options.PrettyTablesOptions.HeaderLine = false
@@ -110,10 +109,10 @@ func main() {
 	//options.PrettyTablesOptions.ColumnSeparator = "│"
 	//options.PrettyTablesOptions.RowSeparator = "─"
 
-    //pretty tables option is somewhat experimental
-    //and the column positions not always correct
-    //so use invisible borders of spaces for now
-    options.PrettyTablesOptions.CenterSeparator = " "
+	//pretty tables option is somewhat experimental
+	//and the column positions not always correct
+	//so use invisible borders of spaces for now
+	options.PrettyTablesOptions.CenterSeparator = " "
 	options.PrettyTablesOptions.ColumnSeparator = " "
 	options.PrettyTablesOptions.RowSeparator = " "
 
